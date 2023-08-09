@@ -1,71 +1,60 @@
+//choose form for submit button
 const phone_form = document.getElementById("phone-form")
 
+//choose input element
 const nameElement = document.getElementById("form-name")
 const phoneElement = document.getElementById("form-phone-number")
 const mailElement = document.getElementById("form-mail")
 
-
+//choose div (class="card-body") for table-body
 const card_body = document.querySelectorAll(".card-body")[1]
-console.log("2. card",card_body)
 
+//all function callback
 eventListener();
 
-
-
 function eventListener(){
+    //form submit
     phone_form.addEventListener("submit",addRecord)
+    //load records
     document.addEventListener("DOMContentLoaded",function(){
         let records = Storage.getRecordFromStorage();
         UI.loadAllRecords(records);
     })
 
-    //elete record one by one 
+    //delete record one by one 
     card_body.addEventListener("click", deleteFilm)
 
 
 
 }
-
-
-
-
 //add a new record to form
-function addRecord(event){
-   
-    
+function addRecord(event){ 
     const name = nameElement.value
     const phone_number = phoneElement.value
     const mail = mailElement.value
 
    if(name === "" ||phone_number === "" || mail === "" )
     {
-        console.log("hata")
         UI.displayMessage("danger","Please, fill in all fields")
-        //en az biri boşsa hata mesajı vermeli
+        
     }
     else{
-        console.log("ekledi")
         //new record
         const newRecord = new Phone(name,phone_number,mail);
         Storage.addRecordToStorage(newRecord);
         UI.displayMessage("success","Record successfully added.") 
 
     }
-
-    //Her addfilm işleminden sonra inputları temizlemek için kulllanılır
+    //clear input after add record
     UI.clearInput(nameElement, phoneElement,mailElement)
     event.preventDefault();
-
-
 
 }
 function deleteFilm(event){
     if(event.target.id === "delete-record")
     {
         UI.deleteRecordFromUI(event.target)
-        //console.log("dene",event.target.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.textContent)
         Storage.deleteRecordFromStorage(event.target.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.textContent)
-
         UI.displayMessage("success", "Phone record successfully deleted")
     }
 

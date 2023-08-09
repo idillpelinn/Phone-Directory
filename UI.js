@@ -6,38 +6,37 @@ class UI{
     element3.value="";
   }
   static displayMessage(type, message) {
-    
+    //chose first div (class="card-body")
     const card_body = document.querySelectorAll(".card-body")[0];
+
+    // create bootstrap alert message 
     const show_alert = document.createElement("div");
     show_alert.className = `alert alert-${type}`;
     show_alert.appendChild(document.createTextNode(message));
     card_body.appendChild(show_alert);
-  
+
     setTimeout(function () {
       show_alert.remove();
     }, 1000);
   };
 
-
-
   static loadAllRecords(records){
-   
+    //choose tbody
     const record_list = document.getElementById("table-body")
-    console.log("liste",record_list)
+    //create tbody 
     records.forEach(function(record){
       record_list.innerHTML+=`
-      <tr>
-            
-              <td>${record.name}</td>
-              <td>${record.phone_number}</td>
-              <td>${record.mail}</td>
-              <td> <button id="delete-record" class="btn btn-outline-danger">Delete <i id="delete-record" class="fa-solid fa-trash fa-bounce" style="color: #d0d6e2;"></i> </button></td>
-          </tr>`
-      
-    })
+        <tr>
+                <td>${record.name}</td>
+                <td>${record.phone_number}</td>
+                <td>${record.mail}</td>
+                <td> <button id="delete-record" class="btn btn-outline-danger">Delete <i id="delete-record" class="fa-solid fa-trash fa-bounce" style="color: #d0d6e2;"></i> </button></td>
+            </tr>`
+           }
+           )
 
   }
-
+  
   static deleteRecordFromUI(element){
     element.parentElement.parentElement.remove();
   }

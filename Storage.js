@@ -1,5 +1,6 @@
 class Storage{
 
+    //return local storage array 
     static getRecordFromStorage(){
         let records;
         if(localStorage.getItem("records") === null){
@@ -14,8 +15,7 @@ class Storage{
     static addRecordToStorage(new_records){
         let records= this.getRecordFromStorage();
         records.push(new_records)
-
-        localStorage.setItem("records",JSON.stringify(records))
+       localStorage.setItem("records",JSON.stringify(records))
 
     }
     static deleteRecordFromStorage(record_name){
