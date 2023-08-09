@@ -1,6 +1,7 @@
 //choose form for submit button
 const phone_form = document.getElementById("phone-form")
 
+
 //choose input element
 const nameElement = document.getElementById("form-name")
 const phoneElement = document.getElementById("form-phone-number")
@@ -13,6 +14,8 @@ const card_body = document.querySelectorAll(".card-body")[1]
 eventListener();
 
 function eventListener(){
+    //add_form.addEventListener("click",addButton)
+    
     //form submit
     phone_form.addEventListener("submit",addRecord)
     //load records

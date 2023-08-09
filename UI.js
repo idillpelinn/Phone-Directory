@@ -27,10 +27,11 @@ class UI{
     records.forEach(function(record){
       record_list.innerHTML+=`
         <tr>
-                <td>${record.name}</td>
+                
+                <td> <i class="fa-solid fa-person fa-shake" style="color: #AAABD3;padding-right:8px; font-size:25px"></i>${record.name}</td>
                 <td>${record.phone_number}</td>
                 <td>${record.mail}</td>
-                <td> <button id="delete-record" class="btn btn-outline-danger">Delete <i id="delete-record" class="fa-solid fa-trash fa-bounce" style="color: #d0d6e2;"></i> </button></td>
+                <td> <button id="delete-record" class="btn btn-outline">Delete<i id="delete-record" class="fa-solid fa-trash fa-bounce" style="color: #AAABD3;padding-left:8px;font-size:20px"></i> </button></td>
             </tr>`
            }
            )
