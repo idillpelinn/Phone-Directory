@@ -21,14 +21,16 @@ class UI{
   };
 
   static loadAllRecords(records){
+   
     //choose tbody
     const record_list = document.getElementById("table-body")
     //create tbody 
+    record_list.innerHTML = ''
     records.forEach(function(record){
       record_list.innerHTML+=`
         <tr>
                 
-                <td> <i class="fa-solid fa-person fa-shake" style="color: #AAABD3;padding-right:8px; font-size:25px"></i>${record.name}</td>
+                <td><i style="color:#AAABD3; font-size:25px; padding-right:3px" class="fa-solid fa-person fa-shake"></i>${record.name}</td>
                 <td>${record.phone_number}</td>
                 <td>${record.mail}</td>
                 <td> <button id="delete-record" class="btn btn-outline">Delete<i id="delete-record" class="fa-solid fa-trash fa-bounce" style="color: #AAABD3;padding-left:8px;font-size:20px"></i> </button></td>

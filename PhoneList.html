@@ -16,7 +16,8 @@
 
 
     <div class="container-fluid">
-        <h1>Phone Directory</h1>
+      <h1>Phone Directory</h1>
+       
         <div class="card-body">
             <form id="phone-form">
                 <div class="form-row">
@@ -36,15 +37,15 @@
                             placeholder="Please enter a mail address" >
                     </div>
                     <div class="div-form">
-                        <button class="btn btn-outline-dark" type="button"> <a
-                                style="text-decoration: none; color:#AAABD3;" href="./index.html">Back</a> </button>
-                                <button class="btn btn-outline-success" type="submit">Add</button>
+                        <button id="list-btn" type="button">List</button>
+                                <button id="add-btn" type="submit">Add</button>
                     </div>
                 </div>      
             </form>
         </div>
+
         <div class="card-body">
-            <table class="table" id="table">
+            <div><table class="table" id="table">
                 <thead>
                 <tr>
                     
@@ -57,7 +58,8 @@
             <!-- tbody burada olacak  -->
                 <tbody id="table-body">
                 </tbody>
-          </table>
+          </table></div>
+            
         </div>
     </div>
 

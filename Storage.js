@@ -19,12 +19,11 @@ class Storage{
 
     }
     static deleteRecordFromStorage(record_name){
-        let records=this.getRecordFromStorage();
-    
+        let records=this.getRecordFromStorage(); 
         records.forEach(function(record, index){
-    
+           
             if(record.name === record_name){
-                console.log("record-bame", record.name)
+
                 records.splice(index,1)
             }
         })

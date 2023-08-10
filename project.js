@@ -1,11 +1,14 @@
 //choose form for submit button
 const phone_form = document.getElementById("phone-form")
 
-
 //choose input element
 const nameElement = document.getElementById("form-name")
 const phoneElement = document.getElementById("form-phone-number")
 const mailElement = document.getElementById("form-mail")
+
+const table = document.getElementById("table")
+const list_btn = document.getElementById("list-btn")
+
 
 //choose div (class="card-body") for table-body
 const card_body = document.querySelectorAll(".card-body")[1]
@@ -14,15 +17,38 @@ const card_body = document.querySelectorAll(".card-body")[1]
 eventListener();
 
 function eventListener(){
-    //add_form.addEventListener("click",addButton)
-    
+    table.style.display="none"
     //form submit
     phone_form.addEventListener("submit",addRecord)
     //load records
-    document.addEventListener("DOMContentLoaded",function(){
+    document.addEventListener("DOMContentLoaded",function(){ 
+        list_btn.addEventListener("click",function(){
+        
         let records = Storage.getRecordFromStorage();
-        UI.loadAllRecords(records);
-    })
+        UI.loadAllRecords(records)
+      
+        table.style.display="block"
+        phone_form.style.display="none"
+
+
+        const button= document.createElement("button")
+        button.id="list-btn"
+        
+        button.textContent="Back"
+        card_body.append(button)
+
+        button.addEventListener("click",function(event){
+            
+            table.style.display="none"
+            phone_form.style.display="block"
+            button.style.display="none";
+
+        })
+
+       
+    })})
+   
+   
 
     //delete record one by one 
     card_body.addEventListener("click", deleteFilm)
@@ -54,8 +80,10 @@ function addRecord(event){
 
 }
 function deleteFilm(event){
+
     if(event.target.id === "delete-record")
     {
+       // console.log(event.target.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.textContent)
         UI.deleteRecordFromUI(event.target)
         Storage.deleteRecordFromStorage(event.target.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.textContent)
         UI.displayMessage("success", "Phone record successfully deleted")

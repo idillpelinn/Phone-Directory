@@ -1,34 +1,33 @@
- body {
+body {
      height: 100%;
      width: 100%;
      padding: 0;
      margin: 0;
-     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab) ;
      background-size: 400% 400%;
-     animation: gradient 15s ease infinite;
+     animation: gradient 18s ease infinite;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    
 }
-.container {
-    color: #AAABD3;;
+
+
+.container-fluid h1{
+    color:#AAABD3;
     font-family: cursive;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-	
-}
-
-
-.container h1{
+    text-align: center;
     font-size: 50px;
-    letter-spacing:8px; 
+    letter-spacing:10px; 
     font-weight: 900;   
     text-shadow: 7px -3px 4px rgba(0, 0, 0, 0.3);
  }
-.container #form-btn{
+ .container-fluid .div-form{
+    display: flex;
+    justify-content: space-evenly;
+ }
+.container-fluid .div-form button{
     background-color: lavender;
     border-radius: 5px;
     
@@ -39,14 +38,23 @@
     font-size: 20px;
     font-weight: 700;
 }
-.container #form-btn:hover{
+.container-fluid .div-form #list-btn:hover{
     border-width: 0px;
-    scale:1.2;
-    background: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    
+    background: linear-gradient(45deg, #ee7752, #e73c7e);
 	background-size: 400% 400%;
 	animation: gradient 3s ease infinite;
 
 }
+.container-fluid .div-form #add-btn:hover{
+    border-width: 0px;
+    
+    background: linear-gradient(45deg,  #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 3s ease infinite;
+
+}
+
 @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
@@ -59,21 +67,33 @@
 	}
 }
 
- /*
- .container-fluid {
-    margin-top: 200px;
-   
-    color: #AAABD3;
-    font-family: cursive;
-    
-   
-    
-
-}
-
-.container-fluid form .div-form{
+.container-fluid .card-body{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items:center;
+   
 }
-*/
+
+.container-fluid .card-body #list-btn{
+    background-color: lavender;
+    border-radius: 5px;
+    margin-right:30px;
+    
+    border-color:lavender;
+    border-style: solid;
+    color:#AAABD3;
+    padding:2px 100px;
+    font-size: 20px;
+    font-weight: 700;
+}
+.container-fluid .card-body #list-btn:hover{
+    border-width: 0px;
+    background: linear-gradient(45deg, #ee7752, #e73c7e);
+	background-size: 400% 400%;
+	animation: gradient 3s ease infinite;
+
+}
+
+
+
 
